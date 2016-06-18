@@ -4,53 +4,53 @@
 ;Dim $vpos=MouseGetPos(1)
 ;Dim $drkey="{PGDN}" , $drkeyp=22
 ;Dim $FDKey=uShopO0
-Dim $version=0.8 ;версия скрипта
+Dim $version=0.8 ;РІРµСЂСЃРёСЏ СЃРєСЂРёРїС‚Р°
 ;? e8 c= 69 666 e9 c= 90 664
-Dim $hshop = 8 , $vshop = 18 ;полноэкранный w7
-Dim $vDres=1	;строка нпц дрес =1 . следующая +20	(фильтр квестов)
-Dim $itmSz=35	;размер слота
+Dim $hshop = 8 , $vshop = 18 ;РїРѕР»РЅРѕСЌРєСЂР°РЅРЅС‹Р№ w7
+Dim $vDres=1	;СЃС‚СЂРѕРєР° РЅРїС† РґСЂРµСЃ =1 . СЃР»РµРґСѓСЋС‰Р°СЏ +20	(С„РёР»СЊС‚СЂ РєРІРµСЃС‚РѕРІ)
+Dim $itmSz=35	;СЂР°Р·РјРµСЂ СЃР»РѕС‚Р°
 Dim $itmArrV[81] = [$itmSz*1, $itmSz*1, $itmSz*1, $itmSz*1, $itmSz*1, $itmSz*1, $itmSz*1, $itmSz*1, $itmSz*1, $itmSz*2, $itmSz*2, $itmSz*2, $itmSz*2, $itmSz*2, $itmSz*2, $itmSz*2, $itmSz*2, $itmSz*2, $itmSz*3, $itmSz*3, $itmSz*3, $itmSz*3, $itmSz*3, $itmSz*3, $itmSz*3, $itmSz*3, $itmSz*3, $itmSz*4, $itmSz*4, $itmSz*4, $itmSz*4, $itmSz*4, $itmSz*4, $itmSz*4, $itmSz*4, $itmSz*4, $itmSz*5, $itmSz*5, $itmSz*5, $itmSz*5, $itmSz*5, $itmSz*5, $itmSz*5, $itmSz*5, $itmSz*5, $itmSz*6, $itmSz*6, $itmSz*6, $itmSz*6, $itmSz*6, $itmSz*6, $itmSz*6, $itmSz*6, $itmSz*6, $itmSz*7, $itmSz*7, $itmSz*7, $itmSz*7, $itmSz*7, $itmSz*7, $itmSz*7, $itmSz*7, $itmSz*7, $itmSz*8, $itmSz*8, $itmSz*8, $itmSz*8, $itmSz*8, $itmSz*8, $itmSz*8, $itmSz*8, $itmSz*8, $itmSz*9, $itmSz*9, $itmSz*9, $itmSz*9, $itmSz*9, $itmSz*9, $itmSz*9, $itmSz*9, $itmSz*9]
 Dim $itmArrH[81] = [$itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9, $itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9, $itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9, $itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9, $itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9, $itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9, $itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9, $itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9, $itmSz*1, $itmSz*2, $itmSz*3, $itmSz*4, $itmSz*5, $itmSz*6, $itmSz*7, $itmSz*8, $itmSz*9]
 Dim $crStCoor[4] = [470,618,650,700]	;Dim $crStCoor[4] = [558,618,658,631]
 
-Dim $ntime=0;200	;задержка лагов (200) апалка петов
+Dim $ntime=0;200	;Р·Р°РґРµСЂР¶РєР° Р»Р°РіРѕРІ (200) Р°РїР°Р»РєР° РїРµС‚РѕРІ
 Dim $lagpause=1500
 
 $sProcName1 = "rzrun.exe"
-If Not ProcessExists($sProcName1) Then Run($sProcName1)	;перезапуск стартера
+If Not ProcessExists($sProcName1) Then Run($sProcName1)	;РїРµСЂРµР·Р°РїСѓСЃРє СЃС‚Р°СЂС‚РµСЂР°
 
-AutoItSetOption("MouseCoordMode", 2) 	;позиция внутри окнна 2 (0)
-AutoItSetOption("PixelCoordMode", 2)	;пиксели внутри окна 2
+AutoItSetOption("MouseCoordMode", 2) 	;РїРѕР·РёС†РёСЏ РІРЅСѓС‚СЂРё РѕРєРЅРЅР° 2 (0)
+AutoItSetOption("PixelCoordMode", 2)	;РїРёРєСЃРµР»Рё РІРЅСѓС‚СЂРё РѕРєРЅР° 2
 
 $hwnd = WinGetHandle("Rappelz")
 WinWaitActive("Rappelz")
 
 $hwnd = WinGetHandle("[ACTIVE]")
-$size = WinGetClientSize("")		;получить размер окна ;1264 964
+$size = WinGetClientSize("")		;РїРѕР»СѓС‡РёС‚СЊ СЂР°Р·РјРµСЂ РѕРєРЅР° ;1264 964
 
-HotKeySet("{PGDN}", "uShopO0")	;сдать дроп на PGDN
-HotKeySet("{NUMPADDIV}", "uShopO1")	;сдать карты на num /
+HotKeySet("{PGDN}", "uShopO0")	;СЃРґР°С‚СЊ РґСЂРѕРї РЅР° PGDN
+HotKeySet("{NUMPADDIV}", "uShopO1")	;СЃРґР°С‚СЊ РєР°СЂС‚С‹ РЅР° num /
 
 
-;HotKeySet("{F8}", "uShopO1")	;сдать дроп на F8
-HotKeySet("\", "fRes1")			;быстрый ББФ
+;HotKeySet("{F8}", "uShopO1")	;СЃРґР°С‚СЊ РґСЂРѕРї РЅР° F8
+HotKeySet("\", "fRes1")			;Р±С‹СЃС‚СЂС‹Р№ Р‘Р‘Р¤
 
 
 HotKeySet("{F3}", "testc")
 
-;HotKeySet("{SPACE}", "uDrop")	;быстрый сбор дропа SPACE
+;HotKeySet("{SPACE}", "uDrop")	;Р±С‹СЃС‚СЂС‹Р№ СЃР±РѕСЂ РґСЂРѕРїР° SPACE
 
-HotKeySet("{HOME}", "iCraft11")	;крафт 1+1 перетаскиванием 8,3
-HotKeySet("{PGUP}", "cCraft1")	;крафт карт 1+1+2
-;HotKeySet("{NUMPAD1}", "petRes1") ; быстрый рес пета
-HotKeySet("{F7}", "petCraft1")	;клейка петов
-HotKeySet("{F9}", "iIn0")		;приручить 1 2 3 таб
-HotKeySet("{F10}", "petUp3")	;апалка петов
+HotKeySet("{HOME}", "iCraft11")	;РєСЂР°С„С‚ 1+1 РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµРј 8,3
+HotKeySet("{PGUP}", "cCraft1")	;РєСЂР°С„С‚ РєР°СЂС‚ 1+1+2
+;HotKeySet("{NUMPAD1}", "petRes1") ; Р±С‹СЃС‚СЂС‹Р№ СЂРµСЃ РїРµС‚Р°
+HotKeySet("{F7}", "petCraft1")	;РєР»РµР№РєР° РїРµС‚РѕРІ
+HotKeySet("{F9}", "iIn0")		;РїСЂРёСЂСѓС‡РёС‚СЊ 1 2 3 С‚Р°Р±
+HotKeySet("{F10}", "petUp3")	;Р°РїР°Р»РєР° РїРµС‚РѕРІ
 
-HotKeySet("{F11}", "drbaf")	;баф друля (охот
+HotKeySet("{F11}", "drbaf")	;Р±Р°С„ РґСЂСѓР»СЏ (РѕС…РѕС‚
 ;F12 bandicam record
 
-HotKeySet("{INS}", "opnItmpnl")	;открывалка с панели 2d
+HotKeySet("{INS}", "opnItmpnl")	;РѕС‚РєСЂС‹РІР°Р»РєР° СЃ РїР°РЅРµР»Рё 2d
 
 HotKeySet("{NUMPADMULT}", "atkmag2")
 
@@ -63,45 +63,45 @@ WEnd
 
 ;--------------------------------------------------------------------------------------------------
 Func atkmag2()
-    HotKeySet("{NUMPADMULT}"); отключаем горячую клавишу
+    HotKeySet("{NUMPADMULT}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 Send("1")
 Send("2")
 
     Until Not _IsPressed('6A')
-    HotKeySet("{NUMPADMULT}", "atkmag2");включаем ее
+    HotKeySet("{NUMPADMULT}", "atkmag2");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc
 
 ;--------------------------------------------------------------------------------------------------
 Func uShopO0()
-    HotKeySet("{PGDN}"); отключаем горячую клавишу
+    HotKeySet("{PGDN}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
-MouseClick("left",23+$hshop,297+$vshop,2,0) ;лкм.гк.вк.выбор.скор - выбор нижнего итема
-MouseClick("left",292+$hshop,316+$vshop,1,0) ;лкм.гк.вк.выбор.скор - сдвиг вверх (выбор ниже)
-MouseClick("left",556+$hshop,316+$vshop,1,0) ;лкм.гк.вк.выбор.скор - сдвиг вверх выбраных (выбор ниже)
+MouseClick("left",23+$hshop,297+$vshop,2,0) ;Р»РєРј.РіРє.РІРє.РІС‹Р±РѕСЂ.СЃРєРѕСЂ - РІС‹Р±РѕСЂ РЅРёР¶РЅРµРіРѕ РёС‚РµРјР°
+MouseClick("left",292+$hshop,316+$vshop,1,0) ;Р»РєРј.РіРє.РІРє.РІС‹Р±РѕСЂ.СЃРєРѕСЂ - СЃРґРІРёРі РІРІРµСЂС… (РІС‹Р±РѕСЂ РЅРёР¶Рµ)
+MouseClick("left",556+$hshop,316+$vshop,1,0) ;Р»РєРј.РіРє.РІРє.РІС‹Р±РѕСЂ.СЃРєРѕСЂ - СЃРґРІРёРі РІРІРµСЂС… РІС‹Р±СЂР°РЅС‹С… (РІС‹Р±РѕСЂ РЅРёР¶Рµ)
     Until Not _IsPressed('22')
-    HotKeySet("{PGDN}", "uShopO0");включаем ее
+    HotKeySet("{PGDN}", "uShopO0");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc   ;==>uShopO0
 
 ;--------------------------------------------------------------------------------------------------
-;сдать карты
+;СЃРґР°С‚СЊ РєР°СЂС‚С‹
 Func uShopO1()
-    HotKeySet("{NUMPADDIV}"); отключаем горячую клавишу
+    HotKeySet("{NUMPADDIV}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 Send("{LSHIFT down}")
-MouseClick("left",31,315,2,0) ;лкм.гк.вк.выбор.скор - выбор нижнего итема
+MouseClick("left",31,315,2,0) ;Р»РєРј.РіРє.РІРє.РІС‹Р±РѕСЂ.СЃРєРѕСЂ - РІС‹Р±РѕСЂ РЅРёР¶РЅРµРіРѕ РёС‚РµРјР°
 Send("{LSHIFT up}")
 Send("{ENTER}")
 Send("{ENTER}")
-MouseClick("left",292+$hshop,316+$vshop,1,0) ;лкм.гк.вк.выбор.скор - сдвиг вверх (выбор ниже)
-MouseClick("left",556+$hshop,316+$vshop,1,0) ;лкм.гк.вк.выбор.скор - сдвиг вверх выбраных (выбор ниже)
+MouseClick("left",292+$hshop,316+$vshop,1,0) ;Р»РєРј.РіРє.РІРє.РІС‹Р±РѕСЂ.СЃРєРѕСЂ - СЃРґРІРёРі РІРІРµСЂС… (РІС‹Р±РѕСЂ РЅРёР¶Рµ)
+MouseClick("left",556+$hshop,316+$vshop,1,0) ;Р»РєРј.РіРє.РІРє.РІС‹Р±РѕСЂ.СЃРєРѕСЂ - СЃРґРІРёРі РІРІРµСЂС… РІС‹Р±СЂР°РЅС‹С… (РІС‹Р±РѕСЂ РЅРёР¶Рµ)
     Until Not _IsPressed('6F')
-    HotKeySet("{NUMPADDIV}", "uShopO1");включаем ее
+    HotKeySet("{NUMPADDIV}", "uShopO1");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc
 ;--------------------------------------------------------------------------------------------------
-;быстрый ББФ
+;Р±С‹СЃС‚СЂС‹Р№ Р‘Р‘Р¤
 Func fRes1()
-   HotKeySet("\"); отключаем горячую клавишу
+   HotKeySet("\"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 Send("h")
 Sleep(50)
@@ -114,33 +114,33 @@ MouseClick("left",$size[0]/2,$size[1]/2+ $vshop+11,1,0) ; h=1/2 h size ;frame= 3
 Send("s")
 Sleep(500)
 Until Not _IsPressed('6F')
-HotKeySet("\", "fRes1");включаем ее
+HotKeySet("\", "fRes1");РІРєР»СЋС‡Р°РµРј РµРµ
 EndFunc
 
 ;--------------------------------------------------------------------------------------------------
 Func uDrop()
-    HotKeySet("{SPACE}"); отключаем горячую клавишу
+    HotKeySet("{SPACE}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 Send("{F9}")
 Send("{SPACE}")
     Until Not _IsPressed('20')
-    HotKeySet("{SPACE}", "uDrop");включаем ее
+    HotKeySet("{SPACE}", "uDrop");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc   ;==>uShopO
 
 ;--------------------------------------------------------------------------------------------------
-;крафт 1+1 перетаскиванием 8,3
-Func iCraft11() ; комбинирование( окно - верхний левый угол)
-    HotKeySet("{HOME}"); отключаем горячую клавишу
+;РєСЂР°С„С‚ 1+1 РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµРј 8,3
+Func iCraft11() ; РєРѕРјР±РёРЅРёСЂРѕРІР°РЅРёРµ( РѕРєРЅРѕ - РІРµСЂС…РЅРёР№ Р»РµРІС‹Р№ СѓРіРѕР»)
+    HotKeySet("{HOME}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 	  Sleep(200)
 
-;выбор окон
-MouseClick("left",500,50,1,1);500*50 выбор окна инвентаря
-Sleep(200); ожидать выбор окна иинвентаря
-MouseClick("left",530,580,1,1);500*50 выбор окна комбинации
-Sleep(500); ожидать выбор окна комбинации
+;РІС‹Р±РѕСЂ РѕРєРѕРЅ
+MouseClick("left",500,50,1,1);500*50 РІС‹Р±РѕСЂ РѕРєРЅР° РёРЅРІРµРЅС‚Р°СЂСЏ
+Sleep(200); РѕР¶РёРґР°С‚СЊ РІС‹Р±РѕСЂ РѕРєРЅР° РёРёРЅРІРµРЅС‚Р°СЂСЏ
+MouseClick("left",530,580,1,1);500*50 РІС‹Р±РѕСЂ РѕРєРЅР° РєРѕРјР±РёРЅР°С†РёРё
+Sleep(500); РѕР¶РёРґР°С‚СЊ РІС‹Р±РѕСЂ РѕРєРЅР° РєРѕРјР±РёРЅР°С†РёРё
 
-;перенос  элемента 1 1 в комбинацию
+;РїРµСЂРµРЅРѕСЃ  СЌР»РµРјРµРЅС‚Р° 1 1 РІ РєРѕРјР±РёРЅР°С†РёСЋ
 MouseMove(364+$hshop, 75+$vshop, 5)
 Sleep(100)
 MouseDown("left")
@@ -156,10 +156,10 @@ Sleep(200)
 Send("{ENTER}")
 Sleep(10)
 
-MouseClick("left",530,580,1,0);500*50 выбор окна комбинации
-Sleep(500); ожидать выбор окна комбинации
+MouseClick("left",530,580,1,0);500*50 РІС‹Р±РѕСЂ РѕРєРЅР° РєРѕРјР±РёРЅР°С†РёРё
+Sleep(500); РѕР¶РёРґР°С‚СЊ РІС‹Р±РѕСЂ РѕРєРЅР° РєРѕРјР±РёРЅР°С†РёРё
 
-;перенос  элемента 1 2 в комбинацию
+;РїРµСЂРµРЅРѕСЃ  СЌР»РµРјРµРЅС‚Р° 1 2 РІ РєРѕРјР±РёРЅР°С†РёСЋ
 MouseMove(398+$hshop, 75+$vshop, 5)
 MouseDown("left")
 Sleep(600)
@@ -174,15 +174,15 @@ Sleep(200)
 Send("{ENTER}")
 Sleep(100)
 
-MouseClick("left",530,580,1,1);500*50 выбор окна комбинации
-Sleep(500); ожидать выбор окна комбинации
+MouseClick("left",530,580,1,1);500*50 РІС‹Р±РѕСЂ РѕРєРЅР° РєРѕРјР±РёРЅР°С†РёРё
+Sleep(500); РѕР¶РёРґР°С‚СЊ РІС‹Р±РѕСЂ РѕРєРЅР° РєРѕРјР±РёРЅР°С†РёРё
 
-MouseClick("left",60+$hshop,642+$vshop,1,1); комбинация 69 666
+MouseClick("left",60+$hshop,642+$vshop,1,1); РєРѕРјР±РёРЅР°С†РёСЏ 69 666
 
-Sleep(100) ; пауза перед повтором
+Sleep(100) ; РїР°СѓР·Р° РїРµСЂРµРґ РїРѕРІС‚РѕСЂРѕРј
 
     Until Not _IsPressed('24')
-    HotKeySet("{HOME}", "iCraft11");включаем ее
+    HotKeySet("{HOME}", "iCraft11");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc   ;==>uShopO
 
 ;--------------------------------------------------------------------------------------------------
@@ -191,7 +191,7 @@ Func retMouse()
 EndFunc
 ;--------------------------------------------------------------------------------------------------
 Func petRes1()
-    HotKeySet("{NUMPAD1}"); отключаем горячую клавишу
+    HotKeySet("{NUMPAD1}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 
 MouseMove(96+$hshop, 100+$vshop,0) ;94 133(9 47
@@ -205,37 +205,37 @@ Sleep(50)
 Send("{ESC}")
  MouseMove($size[0]/2,$size[1]/2, 0)
     Until Not _IsPressed('61')
-    HotKeySet("{NUMPAD1}", "petRes1");включаем ее
+    HotKeySet("{NUMPAD1}", "petRes1");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc
 
 ;--------------------------------------------------------------------------------------------------
-; приручить 123
+; РїСЂРёСЂСѓС‡РёС‚СЊ 123
 #cs
-алгоритм
-сделать
-если скил приручить относительно нижних координар и центра не активен, то не ручать.
-или выбрать цель и баф. пауза каста.
-если маны нет относительно левого верхнего края, то не ручать.
-или использовать банку и ждать ману.
+Р°Р»РіРѕСЂРёС‚Рј
+СЃРґРµР»Р°С‚СЊ
+РµСЃР»Рё СЃРєРёР» РїСЂРёСЂСѓС‡РёС‚СЊ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РЅРёР¶РЅРёС… РєРѕРѕСЂРґРёРЅР°СЂ Рё С†РµРЅС‚СЂР° РЅРµ Р°РєС‚РёРІРµРЅ, С‚Рѕ РЅРµ СЂСѓС‡Р°С‚СЊ.
+РёР»Рё РІС‹Р±СЂР°С‚СЊ С†РµР»СЊ Рё Р±Р°С„. РїР°СѓР·Р° РєР°СЃС‚Р°.
+РµСЃР»Рё РјР°РЅС‹ РЅРµС‚ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ Р»РµРІРѕРіРѕ РІРµСЂС…РЅРµРіРѕ РєСЂР°СЏ, С‚Рѕ РЅРµ СЂСѓС‡Р°С‚СЊ.
+РёР»Рё РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р±Р°РЅРєСѓ Рё Р¶РґР°С‚СЊ РјР°РЅСѓ.
 
 #ce
 
 Func iIn0()
-    HotKeySet("{F9}"); отключаем горячую клавишу
+    HotKeySet("{F9}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 
 For $pup3=0 To 600
 
-Send("3")	;призыв
+Send("3")	;РїСЂРёР·С‹РІ
 Sleep(50)
 
 For $pup31 = 1 To 3
 
-Send("{TAB}");выбор
+Send("{TAB}");РІС‹Р±РѕСЂ
 Sleep(100)
-Send("`")	;каст
+Send("`")	;РєР°СЃС‚
 Sleep(50) ;
-Send("2")	;убой
+Send("2")	;СѓР±РѕР№
 Sleep(50)
 
 Next
@@ -243,20 +243,20 @@ Next
 Next
 
     Until Not _IsPressed('78')
-    HotKeySet("{F9}", "iIn0");включаем ее
+    HotKeySet("{F9}", "iIn0");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc
 ;--------------------------------------------------------------------------------------------------
-;крафт карт 1+1+2
+;РєСЂР°С„С‚ РєР°СЂС‚ 1+1+2
 Func cCraft1 ()
-   HotKeySet("{PGUP}"); отключаем горячую клавишу
+   HotKeySet("{PGUP}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
    Do
 
 For $cc1=1 To 1500
 
-MouseClick("left",500,40,1,1);500*50 выбор окна инвентаря
-Sleep(200); ожидать выбор окна иинвентаря
-MouseClick("left",530,590,1,1);500*50 выбор окна комбинации
-Sleep(100); ожидать выбор окна комбинации 200
+MouseClick("left",500,40,1,1);500*50 РІС‹Р±РѕСЂ РѕРєРЅР° РёРЅРІРµРЅС‚Р°СЂСЏ
+Sleep(200); РѕР¶РёРґР°С‚СЊ РІС‹Р±РѕСЂ РѕРєРЅР° РёРёРЅРІРµРЅС‚Р°СЂСЏ
+MouseClick("left",530,590,1,1);500*50 РІС‹Р±РѕСЂ РѕРєРЅР° РєРѕРјР±РёРЅР°С†РёРё
+Sleep(100); РѕР¶РёРґР°С‚СЊ РІС‹Р±РѕСЂ РѕРєРЅР° РєРѕРјР±РёРЅР°С†РёРё 200
 
 MouseClick("left",358,348,2,0)
 Send("1")
@@ -275,8 +275,8 @@ Sleep(50)
 
 MouseClick("left",$size[0]/2,32+$size[1]/2,1,1)
 
-MouseClick("left",81+$hshop,638+$vshop,1,1); комбинация 90 664 e=9.1
-Sleep(1300) ; пауза перед повтором
+MouseClick("left",81+$hshop,638+$vshop,1,1); РєРѕРјР±РёРЅР°С†РёСЏ 90 664 e=9.1
+Sleep(1300) ; РїР°СѓР·Р° РїРµСЂРµРґ РїРѕРІС‚РѕСЂРѕРј
 
 ;MouseClick("left",$size[0]/2,32+$size[1]/2,1,1)
 
@@ -284,30 +284,30 @@ Next
 
 
     Until Not _IsPressed('21')
-    HotKeySet("{PGUP}", "cCraft1");включаем ее
+    HotKeySet("{PGUP}", "cCraft1");РІРєР»СЋС‡Р°РµРј РµРµ
 
  EndFunc
 ;--------------------------------------------------------------------------------------------------
-;апалка петов у дреса 3дырки
+;Р°РїР°Р»РєР° РїРµС‚РѕРІ Сѓ РґСЂРµСЃР° 3РґС‹СЂРєРё
 Func petUp3 ()
-   HotKeySet("{F10}"); отключаем горячую клавишу
+   HotKeySet("{F10}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
    Do
 
-For $scr81 = 1 To 20	;следующий инвентарь
+For $scr81 = 1 To 20	;СЃР»РµРґСѓСЋС‰РёР№ РёРЅРІРµРЅС‚Р°СЂСЊ
 
-For $vItm = 1 To 315 Step 35	;9 рядов
-For $hMov = 1 To 315 Step 105	;первый ряд
-For $hItm = $hMov To $hMov+104 Step 35 ;уложить 3 карты
+For $vItm = 1 To 315 Step 35	;9 СЂСЏРґРѕРІ
+For $hMov = 1 To 315 Step 105	;РїРµСЂРІС‹Р№ СЂСЏРґ
+For $hItm = $hMov To $hMov+104 Step 35 ;СѓР»РѕР¶РёС‚СЊ 3 РєР°СЂС‚С‹
    MouseClick("left",351+$hshop+$hItm,44+$vshop+$vItm,5,0)
    Sleep(50)
-Next ;конец установки первых 3
+Next ;РєРѕРЅРµС† СѓСЃС‚Р°РЅРѕРІРєРё РїРµСЂРІС‹С… 3
 
-;$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;имя нпц
+;$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;РёРјСЏ РЅРїС†
 
-MouseClick("left",324,425,2,0)	;открыть нпц
+MouseClick("left",324,425,2,0)	;РѕС‚РєСЂС‹С‚СЊ РЅРїС†
 Sleep(200+$ntime)
 
-$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;имя нпц
+$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;РёРјСЏ РЅРїС†
 If @error Then
 #cs
 Send("{ENTER}")
@@ -317,14 +317,14 @@ Send("{ENTER}")
 #ce
 Sleep($lagpause-500)
 EndIf
-MouseClick("left",758,282+$vDres,1,0)	;открыть тренировку ;760 294 9 13
+MouseClick("left",758,282+$vDres,1,0)	;РѕС‚РєСЂС‹С‚СЊ С‚СЂРµРЅРёСЂРѕРІРєСѓ ;760 294 9 13
 
 Sleep(150+$ntime)
 
-For $uSlots = 242 To 282 Step 20	;апалка 1 2 3
+For $uSlots = 242 To 282 Step 20	;Р°РїР°Р»РєР° 1 2 3
 
-$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;имя нпц
-;$rstatus = PixelSearch (647,246,678,276,0X3B3B3B,0,1,$hwnd) ;готовность окна диалога ;серый диалог
+$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;РёРјСЏ РЅРїС†
+;$rstatus = PixelSearch (647,246,678,276,0X3B3B3B,0,1,$hwnd) ;РіРѕС‚РѕРІРЅРѕСЃС‚СЊ РѕРєРЅР° РґРёР°Р»РѕРіР° ;СЃРµСЂС‹Р№ РґРёР°Р»РѕРі
 If @error Then
 #cs
 Send("{ENTER}")
@@ -334,11 +334,11 @@ Send("{ENTER}")
 #ce
 Sleep($lagpause+200)
 EndIf
-MouseClick("left",758,$uSlots+$vDres,1,0)	;апнуть
+MouseClick("left",758,$uSlots+$vDres,1,0)	;Р°РїРЅСѓС‚СЊ
 Sleep(600)
 
-$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;имя нпц
-;$rstatus = PixelSearch (647,246,678,276,0X3B3B3B,0,1,$hwnd) ;готовность окна диалога ;серый диалог
+$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;РёРјСЏ РЅРїС†
+;$rstatus = PixelSearch (647,246,678,276,0X3B3B3B,0,1,$hwnd) ;РіРѕС‚РѕРІРЅРѕСЃС‚СЊ РѕРєРЅР° РґРёР°Р»РѕРіР° ;СЃРµСЂС‹Р№ РґРёР°Р»РѕРі
 If @error Then
 #cs
 Send("{ENTER}")
@@ -348,15 +348,15 @@ Send("{ENTER}")
 #ce
 Sleep($lagpause)
 EndIf
-MouseClick("left",758,242+$vDres,1,0)	;назад
+MouseClick("left",758,242+$vDres,1,0)	;РЅР°Р·Р°Рґ
 Sleep(150+$ntime)
 
 Next
 
-Send("y")	;открыть форму
-Sleep(100)	;убирает выбор себя
+Send("y")	;РѕС‚РєСЂС‹С‚СЊ С„РѕСЂРјСѓ
+Sleep(100)	;СѓР±РёСЂР°РµС‚ РІС‹Р±РѕСЂ СЃРµР±СЏ
 
-$rstatus = PixelSearch (28,71,34,78,0XB99505,0,1,$hwnd) ;форма 1
+$rstatus = PixelSearch (28,71,34,78,0XB99505,0,1,$hwnd) ;С„РѕСЂРјР° 1
 
 
 If @error Then
@@ -371,32 +371,32 @@ Send("{ENTER}")
 Sleep($lagpause)
 EndIf
 
-For $formej = 98 To 350 Step 126	;вынуть
+For $formej = 98 To 350 Step 126	;РІС‹РЅСѓС‚СЊ
 MouseClick("left",33,$formej,4,0)
 Next
 
 Sleep(300)
 
-Next	;конец 1 ряда
-Next	;конец рядов
+Next	;РєРѕРЅРµС† 1 СЂСЏРґР°
+Next	;РєРѕРЅРµС† СЂСЏРґРѕРІ
 
 Sleep(5000)
 
-For $scr1 = 0 To 8	;прокрутить всё
+For $scr1 = 0 To 8	;РїСЂРѕРєСЂСѓС‚РёС‚СЊ РІСЃС‘
 MouseClick("left",661,367,2,0)
 Sleep(10)
 Next
 
-Next ; конец. следующий инвентарь
+Next ; РєРѕРЅРµС†. СЃР»РµРґСѓСЋС‰РёР№ РёРЅРІРµРЅС‚Р°СЂСЊ
 
     Until Not _IsPressed('79')
-    HotKeySet("{F10}", "petUp3");включаем ее
+    HotKeySet("{F10}", "petUp3");РІРєР»СЋС‡Р°РµРј РµРµ
 
  EndFunc
 ;--------------------------------------------------------------------------------------------------
-;клейка петов
+;РєР»РµР№РєР° РїРµС‚РѕРІ
 Func petCraft1 ()
-   HotKeySet("{F7}"); отключаем горячую клавишу
+   HotKeySet("{F7}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
    Do
 
 Dim $wstatus=0
@@ -405,11 +405,11 @@ Dim $rstatus=0
 For $it=1 To 10
 
 Dim $cfix=0
-Dim $pItm=1		; позиция
-;Dim $craft=1	; 1 удачно , 0 неудачно
+Dim $pItm=1		; РїРѕР·РёС†РёСЏ
+;Dim $craft=1	; 1 СѓРґР°С‡РЅРѕ , 0 РЅРµСѓРґР°С‡РЅРѕ
 ;Dim $cend=1		;
 
-Dim $cStep = 90	; количество комбинаций 90=5
+Dim $cStep = 90	; РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРјР±РёРЅР°С†РёР№ 90=5
 
 ;Sleep(3000)
 
@@ -429,7 +429,7 @@ Send("{ENTER}")
 #ce
 
 ;Sleep(300)
-MouseClick("left",286+$itmArrH[1],27+$itmArrV[1],2,0); положить комбинатор
+MouseClick("left",286+$itmArrH[1],27+$itmArrV[1],2,0); РїРѕР»РѕР¶РёС‚СЊ РєРѕРјР±РёРЅР°С‚РѕСЂ
 Send("1")
 Send("{ENTER}")
 Sleep(100)
@@ -441,32 +441,32 @@ $cfix=0
 EndIf
 #ce
 
-If $pItm < 1 Then $pItm=1	;костыль
-If $pItm > 80 Then $pItm=1	;костыль
+If $pItm < 1 Then $pItm=1	;РєРѕСЃС‚С‹Р»СЊ
+If $pItm > 80 Then $pItm=1	;РєРѕСЃС‚С‹Р»СЊ
 
-MouseClick("left",321+$itmArrH[$pItm],27+$itmArrV[$pItm],2,0);положить 1
-$cStep -= 1 ;=$cStep-1	;уменьшаем оставшиеся шаги . изначально N
-$pItm += 1 ;=$pItm+1	;указываем следующий итем
+MouseClick("left",321+$itmArrH[$pItm],27+$itmArrV[$pItm],2,0);РїРѕР»РѕР¶РёС‚СЊ 1
+$cStep -= 1 ;=$cStep-1	;СѓРјРµРЅСЊС€Р°РµРј РѕСЃС‚Р°РІС€РёРµСЃСЏ С€Р°РіРё . РёР·РЅР°С‡Р°Р»СЊРЅРѕ N
+$pItm += 1 ;=$pItm+1	;СѓРєР°Р·С‹РІР°РµРј СЃР»РµРґСѓСЋС‰РёР№ РёС‚РµРј
 Sleep(100)
 
-MouseClick("left",321+$itmArrH[$pItm],27+$itmArrV[$pItm],2,0);положить 1
-$cStep -= 1 ;=$cStep-1	;уменьшаем оставшиеся шаги
+MouseClick("left",321+$itmArrH[$pItm],27+$itmArrV[$pItm],2,0);РїРѕР»РѕР¶РёС‚СЊ 1
+$cStep -= 1 ;=$cStep-1	;СѓРјРµРЅСЊС€Р°РµРј РѕСЃС‚Р°РІС€РёРµСЃСЏ С€Р°РіРё
 Sleep(100)
 
-MouseClick("left",89,656,1,1); комбинация 90 664 e=9.1
+MouseClick("left",89,656,1,1); РєРѕРјР±РёРЅР°С†РёСЏ 90 664 e=9.1
 
 ;Sleep(2300)
 
 MouseMove(321+$itmArrH[$pItm],27+$itmArrV[$pItm],0)
 
 MouseClick("left",$size[0]/2,32+$size[1]/2,1,1)
-Sleep(1300) ; пауза перед повтором
+Sleep(1300) ; РїР°СѓР·Р° РїРµСЂРµРґ РїРѕРІС‚РѕСЂРѕРј
 
-; сбросить ошибку
+; СЃР±СЂРѕСЃРёС‚СЊ РѕС€РёР±РєСѓ
 MouseClick("left",$size[0]/2,32+$size[1]/2,1,1)
 
 Sleep(300)
-$coord1 = PixelSearch ($crStCoor[0],$crStCoor[1],$crStCoor[2],$crStCoor[3],0XB62C36,3,1,$hwnd) ;красный
+$coord1 = PixelSearch ($crStCoor[0],$crStCoor[1],$crStCoor[2],$crStCoor[3],0XB62C36,3,1,$hwnd) ;РєСЂР°СЃРЅС‹Р№
 If Not @error Then
 $rstatus=1
 ;MouseMove($coord1[0],$coord1[1],0)
@@ -475,7 +475,7 @@ $wstatus=0
 ;Sleep(1500)
 EndIf
 
-$coord2 = PixelSearch ($crStCoor[0],$crStCoor[1],$crStCoor[2],$crStCoor[3],0XFAFBFB,10,1,$hwnd) ;белый
+$coord2 = PixelSearch ($crStCoor[0],$crStCoor[1],$crStCoor[2],$crStCoor[3],0XFAFBFB,10,1,$hwnd) ;Р±РµР»С‹Р№
 If Not @error Then $wstatus=1
 Sleep(300)
 
@@ -497,8 +497,8 @@ WEnd
 
 
 
-MouseClickDrag("left",321+$itmArrH[0],27+$itmArrV[0],321+$itmArrH[45],27+$itmArrV[45],6)	;переместить комбинатор
-For $scr1 = 0 To 4	;прокрутить всё
+MouseClickDrag("left",321+$itmArrH[0],27+$itmArrV[0],321+$itmArrH[45],27+$itmArrV[45],6)	;РїРµСЂРµРјРµСЃС‚РёС‚СЊ РєРѕРјР±РёРЅР°С‚РѕСЂ
+For $scr1 = 0 To 4	;РїСЂРѕРєСЂСѓС‚РёС‚СЊ РІСЃС‘
 MouseClick("left",661,367,2,0)
 Sleep(100)
 Next
@@ -507,35 +507,35 @@ Sleep(5000)
 Next
 
     Until Not _IsPressed('76')
-    HotKeySet("{F7}", "petCraft1");включаем ее
+    HotKeySet("{F7}", "petCraft1");РІРєР»СЋС‡Р°РµРј РµРµ
 EndFunc
 
 
 
 
 ;--------------------------------------------------------------------------------------------------
-; открывалка коробок с панели
+; РѕС‚РєСЂС‹РІР°Р»РєР° РєРѕСЂРѕР±РѕРє СЃ РїР°РЅРµР»Рё
 Func opnItmpnl ()
-   HotKeySet("{INS}"); отключаем горячую клавишу
+   HotKeySet("{INS}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
    Do
 
-Send("{,}")	;бк2 9
+Send("{,}")	;Р±Рє2 9
 Sleep(5)
 
     Until Not _IsPressed('2D')
-    HotKeySet("{INS}", "opnItmpnl");включаем ее
+    HotKeySet("{INS}", "opnItmpnl");РІРєР»СЋС‡Р°РµРј РµРµ
 EndFunc
 
 ;--------------------------------------------------------------------------------------------------
-;баф друля
-Func drbaf() ;охот са
-    HotKeySet("{F11}"); отключаем горячую клавишу
+;Р±Р°С„ РґСЂСѓР»СЏ
+Func drbaf() ;РѕС…РѕС‚ СЃР°
+    HotKeySet("{F11}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 Dim $dbs=100
 Dim $drum1[13] = [250,273,273,293,314,334,419,273,273,250,355,377,439]
-;перекрывающая 250 ;усиленная 273 Sleep(500);фа 273 ;ф3	293 ;ма	314 ;мз	334 ;назад 419 ;общая 272 Sleep(500) ;усиленная	273 ;са 250 ;бег 315 ;ск 362 ;закрыть 442
+;РїРµСЂРµРєСЂС‹РІР°СЋС‰Р°СЏ 250 ;СѓСЃРёР»РµРЅРЅР°СЏ 273 Sleep(500);С„Р° 273 ;С„3	293 ;РјР°	314 ;РјР·	334 ;РЅР°Р·Р°Рґ 419 ;РѕР±С‰Р°СЏ 272 Sleep(500) ;СѓСЃРёР»РµРЅРЅР°СЏ	273 ;СЃР° 250 ;Р±РµРі 315 ;СЃРє 362 ;Р·Р°РєСЂС‹С‚СЊ 442
 For $dr2 = 0 To 12
-;$dstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;имя нпц
+;$dstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;РёРјСЏ РЅРїС†
 Sleep(50)
 If $dr2 = 2 Or $dr2 = 8 Then Sleep(500)
 Sleep($dbs)
@@ -551,28 +551,28 @@ EndIf
 MouseClick("left",758,$drum1[$dr2],1,0)
 Next
 
-;са	о
-;фа	п
-;фз	п
-;ма	п
-;мз	п
-;бе	о
-;ск	о
+;СЃР°	Рѕ
+;С„Р°	Рї
+;С„Р·	Рї
+;РјР°	Рї
+;РјР·	Рї
+;Р±Рµ	Рѕ
+;СЃРє	Рѕ
     Until Not _IsPressed('7A')
-    HotKeySet("{F11}", "drbaf");включаем ее
+    HotKeySet("{F11}", "drbaf");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc
 ;--------------------------------------------------------------------------------------------------
 Func mk()
-    HotKeySet("{SPACE}"); отключаем горячую клавишу
+    HotKeySet("{SPACE}"); РѕС‚РєР»СЋС‡Р°РµРј РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ
     Do
 
 MouseClick("left",$size[0]/2,$size[1]/2+40,3,0)
 
     Until Not _IsPressed('20')
-    HotKeySet("{SPACE}", "mk");включаем ее
+    HotKeySet("{SPACE}", "mk");РІРєР»СЋС‡Р°РµРј РµРµ
  EndFunc
 ;--------------------------------------------------------------------------------------------------
-Func testc()	;тест цвета
+Func testc()	;С‚РµСЃС‚ С†РІРµС‚Р°
     HotKeySet("{F3}")
     Do
 
@@ -581,10 +581,10 @@ Func testc()	;тест цвета
 ;Sleep(100)
 
 
-;$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;имя нпц
-;$rstatus = PixelSearch (647,246,678,276,0X3B3B3B,0,1,$hwnd) ;готовность окна диалога ;серый диалог
+;$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;РёРјСЏ РЅРїС†
+;$rstatus = PixelSearch (647,246,678,276,0X3B3B3B,0,1,$hwnd) ;РіРѕС‚РѕРІРЅРѕСЃС‚СЊ РѕРєРЅР° РґРёР°Р»РѕРіР° ;СЃРµСЂС‹Р№ РґРёР°Р»РѕРі
 ;$rstatus = PixelSearch (1,1,300,100,0XB99505,0,1,$hwnd)
-;$rstatus = PixelSearch (28,71,34,78,0XB99505,0,1,$hwnd) ;форма 1
+;$rstatus = PixelSearch (28,71,34,78,0XB99505,0,1,$hwnd) ;С„РѕСЂРјР° 1
 
 #cs
 If Not @error Then
@@ -594,7 +594,7 @@ ElseIf
 #ce
 
 
-;$rstatus = PixelSearch ($crStCoor[0],$crStCoor[1],$crStCoor[2],$crStCoor[3],0XFAFBFB,10,1,$hwnd) ;белый
+;$rstatus = PixelSearch ($crStCoor[0],$crStCoor[1],$crStCoor[2],$crStCoor[3],0XFAFBFB,10,1,$hwnd) ;Р±РµР»С‹Р№
 #cs
 If Not @error Then
 
@@ -615,8 +615,8 @@ EndIf
 #ce
 
 ;#cs
-;$rstatus = PixelSearch ($crStCoor[0],$crStCoor[1],$crStCoor[2],$crStCoor[3],0XB62C36,10,1,$hwnd) ;красный
-$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;имя нпц
+;$rstatus = PixelSearch ($crStCoor[0],$crStCoor[1],$crStCoor[2],$crStCoor[3],0XB62C36,10,1,$hwnd) ;РєСЂР°СЃРЅС‹Р№
+$rstatus = PixelSearch (196,29,261,36,0XFF8200,0,1,$hwnd) ;РёРјСЏ РЅРїС†
 
 If @error Then
 Send("{ENTER}")
