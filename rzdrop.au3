@@ -229,7 +229,7 @@ For $pup3=0 To 600
 Send("3")	;призыв
 Sleep(50)
 
-For $pup31 = 1 To 3
+For $pup31 = 1 To 4
 
 Send("{TAB}");выбор
 Sleep(100)
